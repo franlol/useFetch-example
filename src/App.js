@@ -1,21 +1,15 @@
 import React from 'react';
-
 import useFetch from './useFetch';
 
 import './App.css';
 
 const App = () => {
-
-  React.useEffect(() => {
-    console.log("APP updated");
-  });
-
-  const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon', {});
+  const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokeamon', {});
 
   const getData = () => {
     if (error.status) return <li><p>Error: {error.message}</p></li>;
     if (loading) return <li><p>Loading...</p></li>;
-    if (data.results) return data.results.map((poke, key) => <li key={key}><p>{poke.name}</p></li>)
+    if (data.results) return data.results.map((poke, key) => <li key={key}><p>{poke.name}</p></li>);
   }
 
   return (
@@ -26,7 +20,6 @@ const App = () => {
       </ul>
     </div>
   );
-
 }
 
-export default App;
+export default React.memo(App);
