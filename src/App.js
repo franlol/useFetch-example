@@ -4,7 +4,7 @@ import useFetch from './useFetch';
 import './App.css';
 
 const App = () => {
-  const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokeamon', {});
+  const { data, loading, error } = useFetch('https://pokeapi.co/api/v2/pokemon', {});
 
   const getData = () => {
     if (error.status) return <li><p>Error: {error.message}</p></li>;
